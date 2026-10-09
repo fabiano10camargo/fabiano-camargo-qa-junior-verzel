@@ -1,0 +1,97 @@
+{
+  "executadoEm": "2026-10-09",
+  "executadoEmIso": "2026-10-09T13:50:14.513Z",
+  "ambiente": "https://verzel-store.qa-test-verzel-store.workers.dev",
+  "navegador": "Chromium (Playwright)",
+  "modo": "Sessão exploratória assistida, fora da suíte Playwright Test",
+  "observacoes": [
+    {
+      "id": "EXP-01",
+      "titulo": "Catálogo e persistência do carrinho na mesma aba",
+      "observado": {
+        "quantidadeCartoesProduto": 8,
+        "textoCarrinho": "Carrinho\n2",
+        "textoCarrinhoAposRecarregar": "Carrinho\n2"
+      },
+      "resultado": "PASSOU"
+    },
+    {
+      "id": "EXP-02",
+      "titulo": "Limite exato do frete grátis",
+      "observado": {
+        "subtotal": "R$ 200,00",
+        "desconto": "R$ 0,00",
+        "frete": "R$ 19,90",
+        "total": "R$ 219,90",
+        "mensagem": "Faltam R$ 0,00 para o frete grátis."
+      },
+      "resultado": "FALHOU"
+    },
+    {
+      "id": "EXP-03",
+      "titulo": "Limite de cinco unidades na interface",
+      "observado": {
+        "quantidade": "5",
+        "botaoAumentarDesabilitado": true
+      },
+      "resultado": "PASSOU"
+    },
+    {
+      "id": "EXP-04",
+      "titulo": "Cupom válido com espaços e letras minúsculas",
+      "observado": {
+        "subtotal": "R$ 219,80",
+        "desconto": "- R$ 21,98",
+        "frete": "Grátis",
+        "total": "R$ 197,82",
+        "mensagem": "Cupom BEMVINDO10 aplicado.",
+        "botaoRemoverCupomVisivel": true
+      },
+      "resultado": "PASSOU"
+    },
+    {
+      "id": "EXP-05",
+      "titulo": "Remoção e troca por cupom expirado",
+      "observado": {
+        "subtotal": "R$ 219,80",
+        "desconto": "R$ 0,00",
+        "frete": "Grátis",
+        "total": "R$ 219,80",
+        "mensagem": "Cupom expirado."
+      },
+      "resultado": "PASSOU"
+    },
+    {
+      "id": "EXP-06",
+      "titulo": "Campos obrigatórios do checkout",
+      "observado": {
+        "mensagensCamposObrigatorios": [
+          "Informe o nome completo.",
+          "Informe o e-mail.",
+          "Informe o CEP."
+        ]
+      },
+      "resultado": "PASSOU"
+    },
+    {
+      "id": "EXP-07",
+      "titulo": "Formatos inválidos dos dados do cliente",
+      "observado": {
+        "mensagensFormatoInvalido": [
+          "Informe nome e sobrenome.",
+          "Informe um e-mail válido.",
+          "Informe um CEP com 8 dígitos."
+        ]
+      },
+      "resultado": "PASSOU"
+    },
+    {
+      "id": "EXP-08",
+      "titulo": "Isolamento do carrinho em uma nova sessão",
+      "observado": {
+        "carrinhoVazioVisivel": true
+      },
+      "resultado": "PASSOU"
+    }
+  ]
+}

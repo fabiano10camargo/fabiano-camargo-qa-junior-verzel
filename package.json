@@ -1,0 +1,39 @@
+{
+  "name": "verzel-store-playwright-automation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Automacao de API e interface da Verzel Store com Playwright",
+  "scripts": {
+    "test": "playwright test",
+    "test:api": "playwright test --project=api",
+    "test:e2e": "playwright test --project=e2e-chromium",
+    "test:chrome": "playwright test --project=e2e-chrome",
+    "test:smoke": "playwright test --grep \"@smoke\"",
+    "test:regression": "playwright test --grep-invert \"@bug-\"",
+    "test:bugs": "playwright test --grep \"@bug-\"",
+    "test:exploratory": "node scripts/exploratory-session.cjs",
+    "test:headed": "playwright test --project=e2e-chromium --headed --workers=1",
+    "test:chrome:headed": "playwright test --project=e2e-chrome --headed --workers=1",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write tests scripts playwright.config.ts package.json tsconfig.json eslint.config.mjs",
+    "format:check": "prettier --check tests scripts playwright.config.ts package.json tsconfig.json eslint.config.mjs",
+    "check:links": "node scripts/validate-markdown-links.cjs",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run check:links"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "1.64.0",
+    "@types/node": "20.19.22",
+    "eslint": "^10.12.0",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.9",
+    "typescript": "5.9.3",
+    "typescript-eslint": "^8.71.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
